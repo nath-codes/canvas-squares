@@ -5,7 +5,8 @@ class Canvas {
     this.canvas = canvas;
     this.canvas.style.background = "rgb(000, 000, 000)";
     this.context = this.canvas.getContext("2d");
-    this.addEventListener();
+    this.addResizeListener();
+    this.addResizeListener();
     this.setCanvasSize();
   }
 
@@ -14,7 +15,7 @@ class Canvas {
     this.canvas.width = window.innerWidth;
   }
 
-  addEventListener() {
+  addResizeListener() {
     window.addEventListener("resize", () => {
       this.setCanvasSize(this.canvas);
       this.draw();
