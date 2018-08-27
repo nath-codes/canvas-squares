@@ -5,8 +5,10 @@ class Shape {
     this.y = y;
     this.length = length;
     this.swatch = swatch;
+    this.strokeStyle = "rgba(0, 0, 0)";
     this.swatchKey = this.generateSwatchKey();
     this.rgb = this.getRgb();
+    this.nextRgb = this.getNextRgb();
   }
 
   generateSwatchKey() {
@@ -48,14 +50,15 @@ class Shape {
     this.update();
     this.context.beginPath();
     this.context.fillStyle = this.getFillStyle();
+    this.context.strokeStyle = this.strokeStyle;
     this.context.rect(this.x, this.y, this.length, this.length);
     this.context.fill();
+    this.context.stroke();
   }
 
-  match() {
-    const nextRgb = this.getNextRgb();
+  rgbMatchesNextRgb() {
     const [r, g, b] = this.rgb;
-    const [nextR, nextG, nextB] = nextRgb;
+    const [nextR, nextG, nextB] = this.nextRgb;
     const rMatch = r === nextR;
     const gMatch = g === nextG;
     const bMatch = b === nextB;
@@ -65,8 +68,9 @@ class Shape {
   update() {
     const nextRgb = this.getNextRgb();
 
-    if (this.match()) {
+    if (this.rgbMatchesNextRgb()) {
       this.incrementSwatchKey();
+      this.nextRgb = this.getNextRgb();
     }
 
     for (let i = 0; i < this.rgb.length; i++) {
