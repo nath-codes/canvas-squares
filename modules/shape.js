@@ -1,3 +1,5 @@
+import Mouse from "./mouse-event.js";
+
 class Shape {
   constructor(context, x, y, length, swatch, offset) {
     this.context = context;
@@ -63,10 +65,21 @@ class Shape {
     return rMatch && gMatch && bMatch;
   }
 
+  isHoveringOverSquare() {
+    const xDifference = Mouse.x - this.x;
+    const yDifference = Mouse.y - this.y;
+    const isNearX = xDifference < 20 && xDifference > -20;
+    const isNearY = yDifference < 30 && yDifference > -30;
+
+    return isNearX && isNearY;
+  }
+
   update() {
     const nextRgb = this.getNextRgb();
 
-    if (this.rgbMatchesNextRgb()) {
+    if (this.isHoveringOverSquare()) {
+      this.rgb = [0, 0, 0];
+    } else if (this.rgbMatchesNextRgb()) {
       this.incrementSwatchKey();
       this.nextRgb = this.getNextRgb();
     }
