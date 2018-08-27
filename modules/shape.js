@@ -1,20 +1,10 @@
 class Shape {
-  constructor(context, x, y, length) {
+  constructor(context, x, y, length, swatch) {
     this.context = context;
     this.x = x;
     this.y = y;
     this.length = length;
-    this.swatch = [
-      [54, 54, 44],
-      [93, 145, 125],
-      [168, 173, 128],
-      [230, 212, 167],
-      [130, 85, 52],
-      [220, 53, 34],
-      [217, 203, 158],
-      [55, 65, 64],
-      [42, 44, 43]
-    ];
+    this.swatch = swatch;
     this.swatchKey = this.generateSwatchKey();
     this.rgb = this.getRgb();
   }
