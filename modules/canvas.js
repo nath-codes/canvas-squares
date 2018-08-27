@@ -22,7 +22,7 @@ class Canvas {
   }
 
   draw() {
-    const shapes = new Shapes(this.context, 10);
+    const shapes = new Shapes(this.context, 50);
     shapes.animate();
   }
 }
