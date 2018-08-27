@@ -5,10 +5,15 @@ class Shape {
     this.y = y;
     this.length = length;
     this.swatch = [
-      [194, 87, 123],
-      [130, 112, 142],
-      [96, 213, 218],
-      [232, 172, 184]
+      [54, 54, 44],
+      [93, 145, 125],
+      [168, 173, 128],
+      [230, 212, 167],
+      [130, 85, 52],
+      [220, 53, 34],
+      [217, 203, 158],
+      [55, 65, 64],
+      [42, 44, 43]
     ];
     this.swatchKey = this.generateSwatchKey();
     this.rgb = this.getRgb();
