@@ -1,10 +1,11 @@
 class Shape {
-  constructor(context, x, y, length, swatch) {
+  constructor(context, x, y, length, swatch, offset) {
     this.context = context;
     this.x = x;
     this.y = y;
     this.length = length;
     this.swatch = swatch;
+    this.offset = offset;
     this.swatchKey = this.generateSwatchKey();
     this.rgb = this.getRgb();
     this.nextRgb = this.getNextRgb();
@@ -68,6 +69,12 @@ class Shape {
     if (this.rgbMatchesNextRgb()) {
       this.incrementSwatchKey();
       this.nextRgb = this.getNextRgb();
+    }
+
+    if (this.y < -this.length) {
+      this.y = window.innerHeight - this.offset - 2;
+    } else {
+      this.y -= 1;
     }
 
     for (let i = 0; i < this.rgb.length; i++) {

@@ -9,6 +9,7 @@ class Shapes {
     this.columns = this.calculateColumns();
     this.rows = this.calculateRows();
     this.generateSwatch();
+    this.offset = this.calculateOffset();
     this.render();
 
     this.animate = this.animate.bind(this);
@@ -22,6 +23,11 @@ class Shapes {
     return Math.floor(window.innerWidth / this.squareLength);
   }
 
+  calculateOffset() {
+    const height = this.rows * this.squareLength;
+    return window.innerHeight % height;
+  }
+
   generateColumns(y) {
     let x = 0;
     for (let i = 0; i <= this.columns; i++) {
@@ -30,7 +36,8 @@ class Shapes {
         x,
         y,
         this.squareLength,
-        this.swatch
+        this.swatch,
+        this.offset
       );
       this.shapes.push(shape);
       x += this.squareLength;
