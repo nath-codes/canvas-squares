@@ -78,7 +78,7 @@ class Shape {
     const nextRgb = this.getNextRgb();
 
     if (this.isHoveringOverSquare()) {
-      this.rgb = [0, 0, 0];
+      this.rgb = this.swatch[0];
     } else if (this.rgbMatchesNextRgb()) {
       this.incrementSwatchKey();
       this.nextRgb = this.getNextRgb();
