@@ -1,13 +1,12 @@
 import Mouse from "./mouse-event.js";
 
 class Shape {
-  constructor(context, x, y, length, swatch, offset) {
+  constructor(context, x, y, length, swatch) {
     this.context = context;
     this.x = x;
     this.y = y;
     this.length = length;
     this.swatch = swatch;
-    this.offset = offset;
     this.swatchKey = this.generateSwatchKey();
     this.rgb = this.getRgb();
     this.nextRgb = this.getNextRgb();
@@ -85,7 +84,7 @@ class Shape {
     }
 
     if (this.y < -this.length) {
-      this.y = window.innerHeight - this.offset - 2;
+      this.y = window.innerHeight - 2;
     } else {
       this.y -= 1;
     }

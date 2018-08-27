@@ -9,23 +9,17 @@ class Shapes {
     this.columns = this.calculateColumns();
     this.rows = this.calculateRows();
     this.generateSwatch();
-    this.offset = this.calculateOffset();
     this.render();
 
     this.animate = this.animate.bind(this);
   }
 
   calculateRows() {
-    return Math.floor(window.innerHeight / this.squareLength);
+    return Math.floor(window.innerHeight / this.squareLength) + 1;
   }
 
   calculateColumns() {
     return Math.floor(window.innerWidth / this.squareLength);
-  }
-
-  calculateOffset() {
-    const height = this.rows * this.squareLength;
-    return window.innerHeight % height;
   }
 
   generateColumns(y) {
@@ -36,8 +30,7 @@ class Shapes {
         x,
         y,
         this.squareLength,
-        this.swatch,
-        this.offset
+        this.swatch
       );
       this.shapes.push(shape);
       x += this.squareLength;
