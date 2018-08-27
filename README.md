@@ -1,7 +1,7 @@
-# Canvas Animation
+# Canvas Squares Animation
 
-Lorem ipsum.
+Yet more tinkering the Canvas API. This one is a weird 'infinite scrolling' grid / swatch thing.
 
 ## Demo
 
-You can view the animation [here](#).
+You can view the animation [here]('https://nath-codes.github.io/canvas-squares/').
