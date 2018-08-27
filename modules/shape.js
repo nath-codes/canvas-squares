@@ -5,7 +5,6 @@ class Shape {
     this.y = y;
     this.length = length;
     this.swatch = swatch;
-    this.strokeStyle = "rgba(0, 0, 0)";
     this.swatchKey = this.generateSwatchKey();
     this.rgb = this.getRgb();
     this.nextRgb = this.getNextRgb();
@@ -50,10 +49,8 @@ class Shape {
     this.update();
     this.context.beginPath();
     this.context.fillStyle = this.getFillStyle();
-    this.context.strokeStyle = this.strokeStyle;
     this.context.rect(this.x, this.y, this.length, this.length);
     this.context.fill();
-    this.context.stroke();
   }
 
   rgbMatchesNextRgb() {
